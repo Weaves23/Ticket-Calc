@@ -102,11 +102,15 @@ public class ticketCalc{
             public void actionPerformed(ActionEvent e) {
                 //gathers data toi be sent to ticketCalc class
                 ticketCalc calc = new ticketCalc();
+                //in case user types a letter instead of an integer
+                //catches exeption and prints error message to console
+                try{
                 int setTickets = Integer.parseInt(numTickets.getText());
                 int setAge = Integer.parseInt(age.getText());
                 String veteran = isVet.getText();
                //sends data to ticketCalc and returns result... prints on label
                 totalPrice.setText(String.valueOf(calc.ticketCalc(setTickets, setAge, veteran)));
+                }catch(Exception ex){System.out.println("invalid input");}
             }
                 }
         );
